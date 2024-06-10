@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <html>
+
 <head>
 </head>
+
 <body style="zoom: 150%;">
   <div class="container">
     <nav class="nav navbar fixed-top justify-content-center" style="background-color: black;">
-        <ul class="nav navbar-nav justify-content-center">
-          <li class="nav nav-item">
-            <a href="index.html" class="nav-link text-black active" style="background-color: rgb(0, 217, 255); border-radius:10pt;">About Me</a>
-            <div style="padding-right: 10pt;"></div>
-            <a href="waph.html" class="nav-link text-black" style="background-color: rgb(68, 0, 255); border-radius:10pt;">WAPH</a>
-          </li>
-        </ul>
+      <ul class="nav navbar-nav justify-content-center">
+        <li class="nav nav-item">
+          <a href="index.html" class="nav-link text-black active"
+            style="background-color: rgb(0, 217, 255); border-radius:10pt;">About Me</a>
+          <div style="padding-right: 10pt;"></div>
+          <a href="waph.html" class="nav-link text-black"
+            style="background-color: rgb(68, 0, 255); border-radius:10pt;">WAPH</a>
+        </li>
+      </ul>
     </nav>
   </div>
   <div class="container-fluid">
@@ -34,39 +39,111 @@
             </li>
           </ul>
         </div>
-        <div data-bs-root-margin="0pt -75px 0%" data-bs-spy="scroll" data-bs-target="#navbar" data-offset="0" class="col-10 offset-2" >
-            <h3 id="personal_bio">Personal Bio</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            <h3 id="professional_bio">Professional Bio</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            <h3 id="contact_me">Contact Me</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            <h3 id="javascript_demo">JavaScript Demo</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
+        <div data-bs-root-margin="0pt -75px 0%" data-bs-spy="scroll" data-bs-target="#navbar" data-offset="0"
+          class="col-10 offset-2">
+          <h3 id="personal_bio">Personal Bio</h3>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+          <h3 id="professional_bio">Professional Bio</h3>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+          <h3 id="contact_me">Contact Me</h3>
+          <p>
+          <div id="email-line" onclick="showhideEmail()">Click Here to Display Email...</div>
+          <script>
+            var shown = false;
+            function showhideEmail() {
+              if (shown) {
+                document.getElementById('email-line').innerHTML = "Click Here to Display Email...";
+                shown = false;
+              }
+              else {
+                document.getElementById('email-line').innerHTML = "<a href='mailto:habelbc@mail.uc.edu'>habelbc@mail.uc.edu</a>";
+                shown = true;
+              }
+            }
+          </script>
+          </p>
+          <h3 id="javascript_demo">JavaScript Demo</h3>
+          <p>
+          <div id="digit-clock"></div>
+          <script>
+            function displayTime() {
+              document.getElementById('digit-clock').innerHTML = "Current time: " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+            }
+            setInterval(displayTime, 500)
+          </script>
+          <canvas id="analog-clock" width="150" height="150" style="background-color: #999;"></canvas>
+          <script src="https://waph-uc.github.io/clock.js"></script>
+          <script>
+            var canvas = document.getElementById("analog-clock");
+            var ctx = canvas.getContext("2d");
+            var radius = canvas.height / 2;
+            ctx.translate(radius, radius);
+            radius = radius * 0.9;
+            setInterval(drawClock, 1000);
+
+            function drawClock() {
+              drawFace(ctx, radius);
+              drawNumbers(ctx, radius);
+              drawTime(ctx, radius);
+            }
+          </script>
+          </p>
+          <div>
+            This Button is a jQuery example which will hide and unhide all bodys of text when clicked:
+            <button class="nav-pills" onclick="$('p').toggle()">jQuery Test</button>
+          </div>
+          <br>
+          <div>
+            This Button is a HTTP Get Request which will get a random fact about dogs when you click the button:
+            <button type="button" onClick="getDogFact()">Get Dog Fact</button>
+            <div id="dog-fact">
+            
+            </div>
+            <script>
+              function getDogFact(){
+              $.get("http://dog-api.kinduff.com/api/facts?number=1", function (data) {
+                $("#dog-fact").html(data);
+                alert("Load was performed.");
+              });
+            }
+            </script>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
 </body>
+
 </html>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P850321J7J"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
 
   gtag('config', 'G-P850321J7J');
 </script>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
