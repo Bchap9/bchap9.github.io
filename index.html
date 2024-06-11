@@ -4,25 +4,26 @@
 <html>
 
 <head>
+  <title>Ben Habel's Personal Home Page</title>
 </head>
 
-<body style="zoom: 150%;">
-  <div class="container">
-    <nav class="nav navbar fixed-top justify-content-center" style="background-color: black;">
+<body style="zoom: 120%;">
+  <div class="container" style="margin-left: -10px; margin-right: -10px;"">
+    <nav class="nav navbar" style="background-color: rgba(138, 138, 138, 0.359);">
       <ul class="nav navbar-nav justify-content-center">
         <li class="nav nav-item">
           <a href="index.html" class="nav-link text-black active"
-            style="background-color: rgb(0, 217, 255); border-radius:10pt;">About Me</a>
+            style="background-color: rgb(255, 138, 138, 0.5); border-radius:10pt; margin-left: 10px;">About Me</a>
           <div style="padding-right: 10pt;"></div>
           <a href="waph.html" class="nav-link text-black"
-            style="background-color: rgb(68, 0, 255); border-radius:10pt;">WAPH</a>
+            style="background-color: rgb(138, 138, 138, 0.5); border-radius:10pt;">WAPH</a>
         </li>
       </ul>
     </nav>
   </div>
   <div class="container-fluid">
     <div class="col">
-      <div class="row" style="padding-top: 75px;">
+      <div class="row">
         <div class="col-2 d-flex flex-column text-white bg-white position-fixed">
           <ul id="navbar" class="nav nav-underline flex-column mb-auto">
             <li class="nav-item">
@@ -37,30 +38,34 @@
             <li class="nav-item">
               <a href="#javascript_demo" class="nav-link text-dark">JavaScript Demo</a>
             </li>
+            <li class="nav-item">
+              <a href="#api_demo" class="nav-link text-dark">API Demo</a>
+            </li>
           </ul>
         </div>
-        <div data-bs-root-margin="0pt -75px 0%" data-bs-spy="scroll" data-bs-target="#navbar" data-offset="0"
-          class="col-10 offset-2">
-          <h3 id="personal_bio">Personal Bio</h3>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.
+        <div data-bs-spy="scroll" data-bs-target="#navbar" data-offset="0" class="col-10 offset-2">
+          <h3 id="personal_bio"><u>Personal Bio</u></h3>
+          <img id="body" src="images/ben.jpg" alt="Ben Habel Headshot" style="width:500px;height:600px;">
+          <p id="body">
+            Hi There!! My name is Ben Habel. I am a 3rd year electrical Engineering student at the University of
+            Cincinnati. In my free time I enjoy sports, being with friends and the great outdoors.
           </p>
-          <h3 id="professional_bio">Professional Bio</h3>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.
+          <h3 id="professional_bio"><u>Professional Bio</u></h3>
+          <p id="body">
+          <h6><u>Education</u></h6>
+          <ul>
+            <li>St. Xavier High School - Class of 2021 - 3.7 GPA</li>
+            <li>University of Cincinnati - Bachelors of Science in Electrical Engineering - Class of 2026 - 3.1 GPA</li>
+          </ul>
+          <br>
+          <h6><u>Work Experience</u></h6>
+          <ul>
+            <li>Cincinnati Test Systems - Controls Engineering Co-Op - August 2022-Current</li>
+            <li>Mt. Lookout Swim Club - Swim Team Head Coach - 2021-Current</li>
+          </ul>
           </p>
-          <h3 id="contact_me">Contact Me</h3>
-          <p>
+          <h3 id="contact_me"><u>Contact Me</u></h3>
+          <p id="body">
           <div id="email-line" onclick="showhideEmail()">Click Here to Display Email...</div>
           <script>
             var shown = false;
@@ -76,7 +81,7 @@
             }
           </script>
           </p>
-          <h3 id="javascript_demo">JavaScript Demo</h3>
+          <h3 id="javascript_demo"><u>JavaScript Demo</u></h3>
           <p>
           <div id="digit-clock"></div>
           <script>
@@ -103,25 +108,49 @@
           </script>
           </p>
           <div>
-            This Button is a jQuery example which will hide and unhide all bodys of text when clicked:
-            <button class="nav-pills" onclick="$('p').toggle()">jQuery Test</button>
+            This Button is a jQuery example which will hide and unhide the headshot when clicked:
+            <button class="nav-pills" onclick="$('#body').toggle()">jQuery Test</button>
+          </div>
+
+          <h3 id="api_demo"><u>API Demo</u></h3>
+          <div>
+            These APIs are all third party data and there is no gauruntee on the data which will be returned.
           </div>
           <br>
+          <div onload="getJoke()">
+            <script>
+              async function getJoke() {
+                $.get("https://v2.jokeapi.dev/joke/any?safe-mode", async function (data) {
+                  console.log(data);
+                  if (data.type == "twopart") {
+                    $("#joke").html(data.setup + " " + data.delivery);
+                  }
+                  else if (data.type == "single") {
+                    $("#joke").html(data.joke);
+                  }
+
+                });
+              }
+              setInterval(getJoke, 60000);
+            </script>
+            This is a demo of the JokeAPI. A new joke will be displayed every minute.
+            <p id="joke"></p>
+          </div>
           <div>
             This Button is a HTTP Get Request which will get a random fact about dogs when you click the button:
             <button type="button" onClick="getDogFact()">Get Dog Fact</button>
-            <div id="dog-fact">
-            
-            </div>
+            <div id="dog-fact" class="text-danger"></div>
             <script>
-              function getDogFact(){
-              $.get("http://dog-api.kinduff.com/api/facts?number=1", function (data) {
-                $("#dog-fact").html(data);
-                alert("Load was performed.");
-              });
-            }
+              async function getDogFact() {
+                $.get("https://dog-api.kinduff.com/api/facts?number=1", async function (data) {
+                  console.log(data);
+                  $("#dog-fact").html(data.facts[0]);
+                });
+              }
             </script>
           </div>
+          <div style="margin: 400px;"></div>
+
         </div>
       </div>
     </div>
@@ -130,6 +159,8 @@
 </body>
 
 </html>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -147,3 +178,25 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
   crossorigin="anonymous"></script>
+
+  <script>
+    let x = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("visits="))
+      ?.split("=")[1];
+    let date = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("last_visit="))
+      ?.split("=")[1];
+    console.log(x);
+    if (x == "NaN") {
+      alert("Welcome to my homepage for the first time");
+      x = 0;
+    }
+    else {
+      x = parseInt(x);
+      alert("Welcome back you have visited " + x + " times! Your last visit was on " + date);
+    }
+    document.cookie = "visits=" + eval(x + 1) + ";";
+    document.cookie = "last_visit=" + new Date();
+  </script>
