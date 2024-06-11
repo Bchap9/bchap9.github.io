@@ -189,7 +189,7 @@
       .find((row) => row.startsWith("last_visit="))
       ?.split("=")[1];
     console.log(x);
-    if (x == "NaN") {
+    if ((!(x > 0)) || x == NaN || x == "NaN" ) {
       alert("Welcome to my homepage for the first time");
       x = 0;
     }
